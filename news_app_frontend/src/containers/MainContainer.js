@@ -5,10 +5,12 @@ import ArticleContainer from './ArticleContainer';
 
 const MainContainer = () => {
 
+    // const articles = fetch("/api/articles")
+
     return (
         
         <Router>
-        <h1>I am main container</h1>
+        <h1>ScotNews</h1>
         <>
         <NavBar/>
         <Switch>

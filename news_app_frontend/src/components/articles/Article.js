@@ -12,15 +12,14 @@ const Article = ({ article }) => {
 
     return (
         <>
-            <img src={article.image} height="auto" width="300px" alt="Article" />
+            <img src={article.image} height="auto" width="100%" alt="Article" />
             <Link to={url} className="name">
-                {article.headline} {article.summary}
+                {article.headline}
             </Link>
-            <p>Summary: {article.summary}</p>
-            <p>Written by: {article.journalist.name}</p>
-            <p>Category: {article.category.type}</p>
-            <p>Location: {article.location.name}</p>
-            <p>Date: {article.date}</p>
+            {/* <p>Written by: {article.journalist.name}</p> */}
+            <p>{article.category.type} | {article.location.name}</p>
+        
+            {/* <p>Date: {article.date}</p> */}
         </>
     )
 }

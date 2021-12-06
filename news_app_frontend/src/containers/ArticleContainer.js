@@ -33,7 +33,7 @@ const ArticleContainer = () => {
         const request = new Request();
         const url = "/api/articles/" + id
         request.delete(url)
-            .then(() => window.location = "/articles")
+            .then(() => window.location = "api/articles")
     }
 
     const handlePost = function () {
@@ -81,8 +81,8 @@ const ArticleContainer = () => {
 
 
                 <Route render={() => {
-                    return <h1>I am article container</h1>
-                    // return <ArticleList articles={articles} />
+                    // return <h1>I am article container</h1>
+                    return <ArticleList articles={articles} />
                 }} />
 
             </Switch>
