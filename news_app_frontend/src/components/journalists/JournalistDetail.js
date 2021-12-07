@@ -17,11 +17,11 @@ const JournalistDetail = ({ journalist, article, onDelete }) => {
     return (
         <div className="component">
             <Journalist journalist={journalist}/>
-            <p>Journalist: {journalist.name}</p>
+            {/* <p>{journalist.name}</p> */}
             <p>{journalist.image}</p>
             <p>Articles: {journalist.articles}</p>
-            <button onClick={handleDelete}>Delete {journalist.name}</button>
-            <Link to={editUrl}><button type="button"> Edit {journalist.name}</button></Link>
+            <button onClick={handleDelete}> Delete Journalist </button>
+            <Link to={editUrl}><button type="button"> Edit Journalist </button></Link>
         </div>
     )
 

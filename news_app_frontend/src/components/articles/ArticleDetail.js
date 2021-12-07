@@ -15,12 +15,12 @@ const ArticleDetail = ({ article, onDelete }) => {
 
     return (
         <div className="component">
-            <p>Date: {article.date}</p>
 
             <Article article={article}/>
+            <p>Date: {article.date}</p>
             <p>Written by: {article.journalist.name}</p>
             <p>{article.fullStory}</p>
-            <button onClick={handleDelete}>Delete Article </button>
+            <button onClick={handleDelete}> Delete Article </button>
             <Link to={editUrl}><button type="button"> Edit Article </button></Link>
         </div>
     )

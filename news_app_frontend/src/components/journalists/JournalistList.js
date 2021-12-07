@@ -11,7 +11,7 @@ const JournalistList = ({ journalists }) => {
             <li key={index} className="component-item">
                 <div className="component">
                     <Journalist journalist={journalist} />
-                    <p>{journalist.summary}</p>
+                    <p>{journalist.name}</p>
                 </div>
             </li>
         )
@@ -19,7 +19,7 @@ const JournalistList = ({ journalists }) => {
 
     return (
         <>
-        <h1>Top Stories</h1>
+        <h1>Journalists</h1>
         {journalistNodes}
         </>
     )
