@@ -11,7 +11,7 @@ const ArticleDetail = ({ article, onDelete }) => {
         onDelete(article.id)
     }
 
-    const editUrl = "/articles" + article.id + "/edit"
+    const editUrl = "/articles/" + article.id + "/edit"
 
     return (
         <div className="component">
@@ -20,8 +20,8 @@ const ArticleDetail = ({ article, onDelete }) => {
             <Article article={article}/>
             <p>Written by: {article.journalist.name}</p>
             <p>{article.fullStory}</p>
-            <button onClick={handleDelete}>Delete {article.headline}</button>
-            <Link to={editUrl}><button type="button"> Edit {article.headline}</button></Link>
+            <button onClick={handleDelete}>Delete Article </button>
+            <Link to={editUrl}><button type="button"> Edit Article </button></Link>
         </div>
     )
 
