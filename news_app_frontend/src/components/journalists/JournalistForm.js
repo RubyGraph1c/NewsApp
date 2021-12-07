@@ -6,8 +6,8 @@ const JournalistForm = ({ journalist, articles, onCreate, onUpdate }) => {
     const [stateJournalist, setStateJournalist] = useState(
         {
             name: "",
-            // articles: null,
-            // image: ""
+            articles: null,
+            image: ""
 
         }
     )

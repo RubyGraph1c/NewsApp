@@ -63,6 +63,15 @@ const ArticleContainer = () => {
             })
     }
 
+    const sortByDate = function () {
+        const articlesToUpdate = [...articles]
+        for (let articleToUpdate of articlesToUpdate){
+            articleToUpdate.date = new Date(articleToUpdate)
+        }
+        const sortedArticlesToUpdate = articlesToUpdate.sort((a, b) => b.date - a.date)
+        setArticles(sortedArticlesToUpdate)
+    }
+
 
     if (!articles) {
         return null
@@ -95,7 +104,7 @@ const ArticleContainer = () => {
 
                 <Route render={() => {
                     // return <h1>I am article container</h1>
-                    return <ArticleList articles={articles} />
+                    return <ArticleList articles={articles} sortByDate={sortByDate} />
                 }} />
 
             </Switch>

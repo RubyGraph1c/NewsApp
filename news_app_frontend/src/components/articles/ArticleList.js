@@ -1,7 +1,7 @@
 import React from 'react';
 import Article from './Article';
 
-const ArticleList = ({ articles }) => {
+const ArticleList = ({ articles, sortByDate }) => {
     if (articles.length === 0) {
         return (<p>Loading...</p>)
     }
@@ -19,8 +19,9 @@ const ArticleList = ({ articles }) => {
 
     return (
         <>
-        <h1>Top Stories</h1>
-        {articleNodes}
+            <h1>Top Stories</h1>
+            <button onClick={sortByDate}> Sort by Date </button>
+            {articleNodes}
         </>
     )
 }

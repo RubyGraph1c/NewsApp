@@ -11,7 +11,6 @@ const JournalistList = ({ journalists }) => {
             <li key={index} className="component-item">
                 <div className="component">
                     <Journalist journalist={journalist} />
-                    <p>{journalist.name}</p>
                 </div>
             </li>
         )
