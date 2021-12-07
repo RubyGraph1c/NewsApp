@@ -3,19 +3,32 @@ import { Route, Switch } from 'react-router-dom';
 import ArticleList from '../components/articles/ArticleList';
 import ArticleDetail from '../components/articles/ArticleDetail';
 import ArticleForm from '../components/articles/ArticleForm';
+
 import Request from '../helpers/request';
 
 const ArticleContainer = () => {
 
     const [articles, setArticles] = useState([]);
+    const [journalists, setJournalists] = useState([]);
+    const [categories, setCategories] = useState([]);
+    const [locations, setLocations] = useState([]);
+
 
     const requestAll = function () {
         const request = new Request();
         const articlePromise = request.get('/api/articles')
+        const journalistPromise = request.get('/api/journalists')
+        const categoryPromise = request.get('/api/categories')
+        const locationPromise = request.get('/api/locations')
 
-        Promise.all([articlePromise])
+
+        Promise.all([articlePromise, journalistPromise, categoryPromise, locationPromise])
             .then((data) => {
                 setArticles(data[0]);
+                setJournalists(data[1])
+                setCategories(data[2])
+                setLocations(data[3])
+
             })
     }
 
@@ -36,9 +49,9 @@ const ArticleContainer = () => {
             .then(() => window.location = "api/articles")
     }
 
-    const handlePost = function () {
+    const handlePost = function (article) {
         const request = new Request();
-        request.post("/api/articles", articles)
+        request.post("/api/articles", article)
             .then(() => window.location = '/articles')
     }
 
@@ -60,13 +73,13 @@ const ArticleContainer = () => {
             <Switch>
 
                 <Route exact path='/articles/new' render={() => {
-                    return <ArticleForm onCreate={handlePost} />
+                    return <ArticleForm journalists={journalists} categories={categories} locations={locations} onCreate={handlePost} />
                 }} />
 
                 <Route exact path="/articles/:id/edit" render={(props) => {
                     const id = props.match.params.id;
                     const article = findArticleById(id);
-                    return <ArticleForm article={article} onUpdate={handleUpdate} />
+                    return <ArticleForm article={article} journalists={journalists} categories={categories} locations={locations} onUpdate={handleUpdate} />
                 }} />
 
 

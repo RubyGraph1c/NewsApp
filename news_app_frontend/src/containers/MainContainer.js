@@ -2,10 +2,9 @@ import React from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import NavBar from '../components/NavBar.js';
 import ArticleContainer from './ArticleContainer';
+import JournalistContainer from './JournalistContainer';
 
 const MainContainer = () => {
-
-    // const articles = fetch("/api/articles")
 
     return (
         
@@ -14,7 +13,9 @@ const MainContainer = () => {
         <>
         <NavBar/>
         <Switch>
-          <Route path="/articles" component={ArticleContainer} />
+          <Route path="/articles" component={ArticleContainer}/>
+          <Route path="/journalists" component={JournalistContainer}/>
+
         </Switch>
         </>
         </Router>
