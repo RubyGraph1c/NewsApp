@@ -12,6 +12,8 @@ const ArticleContainer = () => {
     const [journalists, setJournalists] = useState([]);
     const [categories, setCategories] = useState([]);
     const [locations, setLocations] = useState([]);
+    const [filter, setFilter] = useState(null);
+    const [selectedArticle, setSelectedArticle] = useState(null);
 
 
     const requestAll = function () {
@@ -63,13 +65,37 @@ const ArticleContainer = () => {
             })
     }
 
+    //sort by date button - not yet functional
     const sortByDate = function () {
         const articlesToUpdate = [...articles]
-        for (let articleToUpdate of articlesToUpdate){
-            articleToUpdate.date = new Date(articleToUpdate)
+        console.log(typeof(articles[0].date))
+
+        for (let articleToUpdate of articlesToUpdate) {
+            articleToUpdate.date = Date.parse(articleToUpdate)
+            // articleToUpdate.date = new Date(articleToUpdate)
+
         }
+        console.log(typeof(articlesToUpdate[0].date))
+        console.log(articlesToUpdate[0].date)
         const sortedArticlesToUpdate = articlesToUpdate.sort((a, b) => b.date - a.date)
         setArticles(sortedArticlesToUpdate)
+    }
+
+    //filter by category button - not yet functional 
+
+    // articles = articles.filter(function (item) {
+    //     for (var key in filter) {
+    //         if (item[key] === undefined || item[key] != filter[key])
+    //             return false;
+    //     }
+    //     return true;
+    // });
+
+    const filterByCategory = function () {
+        const filteredArticles = articles.filter(article => {
+            return article.category.type === filter
+        })
+        setArticles(filteredArticles)
     }
 
 
@@ -104,7 +130,17 @@ const ArticleContainer = () => {
 
                 <Route render={() => {
                     // return <h1>I am article container</h1>
-                    return <ArticleList articles={articles} sortByDate={sortByDate} />
+                    return (
+                        <ArticleList
+                            articles={articles}
+                            categories={categories} 
+                            sortByDate={sortByDate} 
+                            filterByCategory={filterByCategory}
+                            filter={filter}
+                            setFilter={setFilter}
+                            setArticles={setArticles}
+                        />
+                    )
                 }} />
 
             </Switch>

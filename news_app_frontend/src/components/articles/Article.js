@@ -1,5 +1,5 @@
 import React from 'react';
-import {Link} from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 
 const Article = ({ article }) => {
@@ -12,14 +12,15 @@ const Article = ({ article }) => {
 
     return (
         <>
-            <img src={article.image} height="auto" width="100%" alt="Article" />
+            <p>Written by: {article.journalist.name}</p>
+            <p>Date: {article.date}</p>
+            {/* <p>{article.category.type} | {article.location.name}</p> */}
+            <p> {article.location.name}</p>
             <Link to={url} className="name">
                 {article.headline}
             </Link>
-            {/* <p>Written by: {article.journalist.name}</p> */}
-            <p>{article.category.type} | {article.location.name}</p>
-        
-            {/* <p>Date: {article.date}</p> */}
+            <img src={article.image} height="auto" width="100%" alt="Article" />
+            <p>{article.summary}</p>
         </>
     )
 }
