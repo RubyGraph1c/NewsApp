@@ -1,4 +1,4 @@
-Solo project creating a News Application using Spring and React.
+Solo project creating a full-stack News Application using Spring and React.
 
 What does it do?: The application is intended to be used internally for a news company to manage articles and journalists.
 
