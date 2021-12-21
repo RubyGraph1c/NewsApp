@@ -1,6 +1,6 @@
 Solo project creating a full-stack News Application using Spring and React.
 
-What does it do?: The application is intended to be used internally for a news company to manage articles and journalists.
+What does it do?: The application is intended to be used as an internal resource for a news company to manage articles and journalists.
 
 What I got out of the project: Consolidated understanding of Java and JavaScript to create a full-stack web application.
 
